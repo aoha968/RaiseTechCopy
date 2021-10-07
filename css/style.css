@@ -1,0 +1,693 @@
+@charset "UTF-8";
+/* 共通部分
+--------------------------------- */
+html {
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1.15;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  text-align: left;
+  color: #212529;
+  background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+/* HEADER
+--------------------------------- */
+.Header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #fff;
+  z-index: 1100;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.Header .Header_title {
+  margin: 0 0 0 21px;
+  width: 160px;
+}
+
+.Header .Header_title p {
+  margin-bottom: 0;
+}
+
+.Header .Header_title p img {
+  height: 33px;
+  width: auto;
+}
+
+.Header .Header_title p a {
+  line-height: 1.3;
+  font-weight: 900;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -ms-flex-align: center;
+}
+
+.Header .Header_title p a:link {
+  color: #131d34;
+  text-decoration: none;
+}
+
+.Header .Header_title p a span {
+  margin-left: 16px;
+  white-space: nowrap;
+  font-size: 14px;
+  color: #131D34;
+}
+
+strong {
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.Nav {
+  font-weight: 700;
+}
+
+.Nav_btn {
+  margin-bottom: 0;
+  display: none;
+}
+
+.Nav_body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.Nav_body ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.Nav_body ul li {
+  position: relative;
+  white-space: nowrap;
+}
+
+.Nav_body ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 15px;
+  height: 70px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: black;
+}
+
+.Nav_body ul li a:link {
+  color: #131d34;
+  text-decoration: none;
+}
+
+.Nav_body ul li a:hover {
+  background-color: #d4f1f8;
+}
+
+.Nav_body ul li.Nav_special a {
+  background-color: #2498b3;
+  color: #fff;
+}
+
+ul.sub-menu {
+  display: none;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  z-index: 1000;
+}
+
+ul.sub-menu li {
+  font-weight: 400;
+  background-color: #e9f8fb;
+}
+
+ul.sub-menu li a {
+  padding: 15px 60px 15px 15px;
+  height: auto;
+}
+
+ul.sub-menu li a:hover {
+  color: #2498b3;
+  background-color: #fff;
+}
+
+/* ToHead
+--------------------------------- */
+/* 背景画像 - 背面 */
+.ToHead {
+  position: relative;
+  height: 650px;
+  overflow: hidden;
+  background: transparent url(../image/bg-hero3.png) no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-top: 70px;
+}
+
+/* 背景画像（前面/中央）とボックス */
+.ToHead_layer {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 背景画像 - 前面 */
+.ToHead_layer1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 80px;
+  background: transparent url(../image/bg-hero1.png) no-repeat center center;
+  z-index: 200;
+}
+
+/* 中央のボックス */
+.ToHead_body {
+  max-width: 530px;
+  border-radius: 10px;
+  padding: 43px 40px 19px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.ToHead_body p {
+  margin: 1.3em 0 0.5em;
+  font-weight: 700;
+}
+
+.ToHead_title img {
+  width: 280px;
+  height: auto;
+}
+
+.ToHead_title p {
+  font-size: 16px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  margin-bottom: 20.8px;
+}
+
+.ToHead_body p.Btn.Btn--big a {
+  padding: 24px 37px;
+  font-size: 18px;
+  background-color: #2498b3;
+  border-color: #2498b3;
+}
+
+p.Btn {
+  margin: 0 10px 1em 5px;
+  line-height: 1;
+  display: inline-block;
+}
+
+.Btn a {
+  display: block;
+  border-radius: 4px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* 背景画像 - 中央 */
+.ToHead_layer2 {
+  background: transparent url(../image/bg-hero2.png) no-repeat center center;
+  z-index: 100;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/* Sec
+--------------------------------- */
+.Sec.Sec--nallow {
+  padding: 4em 0;
+}
+
+.Sec.Sec--black {
+  background-color: #000;
+}
+
+.Sec--recommendation {
+  z-index: 500;
+}
+
+/* 丸icon + 文章 */
+.Recommendation {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: -263px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  z-index: 1000;
+}
+
+.Recommendation__entry {
+  margin: 0 50px;
+  width: 229px;
+}
+
+.Recommendation__title {
+  text-align: center;
+}
+
+.Recommendation__title .Recommendation__icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+      align-items: center;
+  width: 230px;
+  height: 230px;
+  margin: 0 auto;
+  color: #000;
+  border: solid 6px #000;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 100px;
+}
+
+/* 丸icon */
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa, .fab, .fal, .far, .fas {
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+/* レスポンシブ対応 ~1280px
+--------------------------------- */
+@media screen and (max-width: 1280px) {
+  .ToHead {
+    margin-top: 70px;
+  }
+
+  .Header .Header_title p a span {
+    display: none;
+  }
+}
+/* レスポンシブ対応 ~1200px
+--------------------------------- */
+@media screen and (max-width: 1200px) {
+  .ToHead {
+    margin-top: 50px;
+  }
+
+  .Nav_btn {
+    display: block;
+  }
+
+  .Nav_btn a span {
+    display: block;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* ナビゲーションメニュー（閉じている時）
+  --------------------------------- */
+  /* close　全体設定　*/
+  .Nav_btn a,
+.Nav_btn a.close {
+    display: block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+  }
+
+  /* closeの前　三の最上位の線の描画 */
+  .Nav_btn a:before,
+.Nav_btn a.close:before {
+    position: absolute;
+    top: 15px;
+    left: 14px;
+    content: "";
+    width: 23px;
+    height: 2px;
+    background-color: #2498b3;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+  }
+
+  /* close　三の真ん中の線の描画 */
+  .Nav_btn a span:after,
+.Nav_btn a.close span:after {
+    position: absolute;
+    top: 24px;
+    left: 14px;
+    content: "";
+    width: 23px;
+    height: 2px;
+    background-color: #2498b3;
+  }
+
+  /* closeの後　三の最下位の線の描画 */
+  .Nav_btn a:after,
+.Nav_btn a.close:after {
+    position: absolute;
+    bottom: 15px;
+    left: 14px;
+    content: "";
+    width: 23px;
+    height: 2px;
+    background-color: #2498b3;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+  }
+
+  /* openの前　/の線の描画 */
+  .Nav_btn a.open:before {
+    top: 24px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    background-color: #fff;
+  }
+
+  /* openの前　✕の全体設定 */
+  .Nav_btn a.open {
+    background-color: #2498b3;
+  }
+
+  /* openの後　\の線の描画 */
+  .Nav_btn a.open:after {
+    bottom: 24px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    background-color: #fff;
+  }
+
+  /* 第2階層の+のーを描画 */
+  .menu-item-has-children > a:before {
+    display: block;
+    content: "";
+    position: absolute;
+    right: 13px;
+    width: 24px;
+    height: 2px;
+    margin-top: -1px;
+    background-color: #121212;
+    z-index: 9;
+  }
+
+  /* 第2階層の+の|を描画 */
+  .menu-item-has-children.close > a:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    width: 2px;
+    height: 24px;
+    margin-top: -12px;
+    background-color: #121212;
+  }
+
+  /* ヘッダーの位置調整
+  --------------------------------- */
+  .Header .Header_title {
+    margin: 10px;
+  }
+
+  .Header .Header_title p a {
+    height: 30px;
+  }
+
+  .Header .Header_title p img {
+    height: 30px;
+  }
+
+  /* ナビゲーション　第1階層
+  --------------------------------- */
+  .Nav_body {
+    display: none;
+    /* 最初は非表示(表示の設定はjs制御) */
+    position: absolute;
+    /* 相対配置 */
+    top: 50px;
+    /* 相対配置：上 */
+    left: 0;
+    /* 相対配置：左 */
+    right: 0;
+    /* 相対配置：下 */
+    z-index: 999;
+    /* 最前面表示 */
+    background-color: #fff;
+    /* 背景色 */
+  }
+
+  .Nav_body ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    /* 縦並び */
+    -ms-flex-direction: column;
+    /* ベンダープレフィックス(IE) */
+  }
+
+  .Nav_body ul li a {
+    padding: 10px;
+    /* 余白 */
+    height: 50px;
+    /* 高さ */
+  }
+
+  .Nav_body ul li a:hover {
+    background-color: #f3fafb;
+    /* hoverの色 */
+  }
+
+  /* ナビゲーション　第2階層
+  --------------------------------- */
+  ul.sub-menu {
+    position: static;
+    height: auto;
+    /* 第2階層はリスト数が違うのでAuto設定 */
+  }
+
+  ul.sub-menu li {
+    background-color: #fff;
+    /* 背景色 */
+  }
+
+  ul.sub-menu li a {
+    padding: 10px 10px 10px 25px;
+    /* 第2階層のインデント */
+  }
+
+  .Nav_body ul li.Nav_special {
+    display: none;
+    /* 1200px以下は非表示 */
+  }
+}
+/* レスポンシブ対応 ~1078px
+--------------------------------- */
+@media screen and (max-width: 1078px) {
+  /* サイズが小さくなっていく = 表示範囲が狭くなるので、画像/テキストの幅を微調整 */
+  .Wrap.Wrap--wide {
+    margin: 0 10px;
+  }
+
+  .Recommendation__entry {
+    width: 29.33%;
+    margin: 0 2%;
+  }
+}
+/* レスポンシブ対応 ~767px
+--------------------------------- */
+@media screen and (max-width: 767px) {
+  .ToHead {
+    height: 300px;
+    /* モバイル版に高さ調整 */
+    padding-bottom: 360px;
+    /* モバイル版に下部の余白調整 */
+    background-position: center -25px;
+    /* モバイル版に背景(hero3)位置調整 */
+  }
+
+  .ToHead_layer1 {
+    align-items: flex-end;
+    /* ToHead_body部を背景画像の下に配置 */
+    -webkit-box-align: end;
+    /* ベンダープレフィックス(chrome,Safari) */
+    -ms-flex-align: end;
+    /* ベンダープレフィックス(IE) */
+    background-position: center -30px;
+    /* モバイル版に背景(hero1)位置調整 */
+    background-size: cover;
+    /* 背景画像の縦横比を維持したまま、要素全体を覆う設定 */
+  }
+
+  .ToHead_body {
+    width: 100%;
+    /* 下部に配置しているので幅を画面全体 */
+    max-width: 100%;
+    /* 下部に配置しているので高さを画面全体 */
+    padding: 9px 0 13px;
+    /* 余白の調整 */
+    border-radius: 0;
+    /* ボックスの形は四角 */
+  }
+
+  .ToHead_body p {
+    margin: 0.5em 0;
+    /* ロゴとボタンの余白調整 */
+  }
+
+  .ToHead_title img {
+    display: none;
+    /* モバイル版はロゴを表示しない */
+  }
+
+  .ToHead_body p.Btn.Btn--big a {
+    padding: 16px;
+    /* ボタン部分の余白調整 */
+    font-size: 16px;
+    /* ボタン部分のフォント調整 */
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+
+  .ToHead_layer2 {
+    background-position: center -25px;
+    /* モバイル版に背景(hero2)位置調整 */
+    background-size: cover;
+    /* 背景画像の縦横比を維持したまま、要素全体を覆う設定 */
+  }
+
+  .Recommendation {
+    margin-top: 0;
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+  }
+
+  .Recommendation__entry {
+    margin-bottom: 2.5em;
+    width: auto;
+  }
+}
+/* 以下はおまけ
+--------------------------------- */
+/* スライダー */
+/* フッター */
+footer {
+  padding-top: 40px;
+  background-color: #131d34;
+  position: relative;
+}
+footer > p {
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+}
+
+.Footer__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+  margin-bottom: 2.2em;
+  max-width: 1078px;
+  font-weight: 700;
+}
+
+.Footer__nav p {
+  margin-bottom: 0.9em;
+}
+
+.Footer__nav ul li {
+  margin-bottom: 0.5em;
+}
+
+.Footer__col {
+  margin-top: 2em;
+  color: #fff;
+}
+
+.Footer__col ul li {
+  list-style: none;
+}
+
+.Footer__col ul li a {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.Footer__col ul li a:link {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 767px) {
+  .Footer {
+    padding-top: 1.7em;
+  }
+
+  .Footer__nav {
+    display: none;
+  }
+}
+/*# sourceMappingURL=style.css.map */
