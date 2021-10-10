@@ -74,7 +74,8 @@ $(function(){
         var submenu=$(this).find("ul.sub-menu");
         var allsubmenu=$(".Nav ul.sub-menu");
         var allbtn=$(".Nav_body li.menu-item-has-children");
-        $(this).addClass("close");$(submenu).addClass("close");
+        $(this).addClass("close");
+        $(submenu).addClass("close");
         $(this).hover(function(){
             if($(this).hasClass("open")){
                 $(this).removeClass("open").addClass("close");
