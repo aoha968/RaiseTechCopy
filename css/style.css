@@ -44,21 +44,31 @@ img {
   left: 0;
 }
 
-.Header .Header_title {
+.Header .Header__title {
   margin: 0 0 0 21px;
   width: 160px;
 }
 
-.Header .Header_title p {
+@media screen and (max-width: 1200px) {
+  .Header .Header__title {
+    margin: 10px;
+  }
+}
+.Header .Header__title p {
   margin-bottom: 0;
 }
 
-.Header .Header_title p img {
+.Header .Header__title p img {
   height: 33px;
   width: auto;
 }
 
-.Header .Header_title p a {
+@media screen and (max-width: 1200px) {
+  .Header .Header__title p img {
+    height: 30px;
+  }
+}
+.Header .Header__title p a {
   line-height: 1.3;
   font-weight: 900;
   height: 70px;
@@ -72,39 +82,180 @@ img {
   -ms-flex-align: center;
 }
 
-.Header .Header_title p a:link {
+@media screen and (max-width: 1200px) {
+  .Header .Header__title p a {
+    height: 30px;
+  }
+}
+.Header .Header__title p a:link {
   color: #131d34;
   text-decoration: none;
 }
 
-.Header .Header_title p a span {
+.Header .Header__title p a span {
   margin-left: 16px;
   white-space: nowrap;
   font-size: 14px;
   color: #131D34;
 }
 
+@media screen and (max-width: 1280px) {
+  .Header .Header__title p a span {
+    display: none;
+  }
+}
 strong {
   font-size: 18px;
   font-weight: bolder;
 }
 
+/* ナビゲーション　第1階層
+--------------------------------- */
 .Nav {
   font-weight: 700;
 }
 
-.Nav_btn {
+.Nav__btn {
   margin-bottom: 0;
   display: none;
 }
 
-.Nav_body {
+@media screen and (max-width: 1200px) {
+  .Nav__btn {
+    display: block;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .Nav__btn a span {
+    display: block;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* ナビゲーションメニュー（閉じている時）
+  --------------------------------- */
+  /* close　全体設定　*/
+  .Nav__btn a,
+.Nav__btn a.close {
+    display: block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+  }
+
+  /* closeの前　三の最上位の線の描画 */
+  .Nav__btn a:before,
+.Nav__btn a.close:before {
+    position: absolute;
+    top: 15px;
+    left: 14px;
+    content: "";
+    width: 23px;
+    height: 2px;
+    background-color: #2498b3;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+  }
+
+  /* close　三の真ん中の線の描画 */
+  .Nav__btn a span:after,
+.Nav__btn a.close span:after {
+    position: absolute;
+    top: 24px;
+    left: 14px;
+    content: "";
+    width: 23px;
+    height: 2px;
+    background-color: #2498b3;
+  }
+
+  /* closeの後　三の最下位の線の描画 */
+  .Nav__btn a:after,
+.Nav__btn a.close:after {
+    position: absolute;
+    bottom: 15px;
+    left: 14px;
+    content: "";
+    width: 23px;
+    height: 2px;
+    background-color: #2498b3;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+  }
+
+  /* openの前　/の線の描画 */
+  .Nav__btn a.open:before {
+    top: 24px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    background-color: #fff;
+  }
+
+  /* openの前　✕の全体設定 */
+  .Nav__btn a.open {
+    background-color: #2498b3;
+  }
+
+  /* openの後　\の線の描画 */
+  .Nav__btn a.open:after {
+    bottom: 24px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    background-color: #fff;
+  }
+
+  /* 第2階層の+のーを描画 */
+  .menu-item-has-children > a:before {
+    display: block;
+    content: "";
+    position: absolute;
+    right: 13px;
+    width: 24px;
+    height: 2px;
+    margin-top: -1px;
+    background-color: #121212;
+    z-index: 9;
+  }
+
+  /* 第2階層の+の|を描画 */
+  .menu-item-has-children.close > a:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    width: 2px;
+    height: 24px;
+    margin-top: -12px;
+    background-color: #121212;
+  }
+}
+.Nav__body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.Nav_body ul {
+@media screen and (max-width: 1200px) {
+  .Nav__body {
+    display: none;
+    /* 最初は非表示(表示の設定はjs制御) */
+    position: absolute;
+    /* 相対配置 */
+    top: 50px;
+    /* 相対配置：上 */
+    left: 0;
+    /* 相対配置：左 */
+    right: 0;
+    /* 相対配置：下 */
+    z-index: 999;
+    /* 最前面表示 */
+    background-color: #fff;
+    /* 背景色 */
+  }
+}
+.Nav__body ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -113,12 +264,22 @@ strong {
   display: flex;
 }
 
-.Nav_body ul li {
+@media screen and (max-width: 1200px) {
+  .Nav__body ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    /* 縦並び */
+    -ms-flex-direction: column;
+    /* ベンダープレフィックス(IE) */
+  }
+}
+.Nav__body ul li {
   position: relative;
   white-space: nowrap;
 }
 
-.Nav_body ul li a {
+.Nav__body ul li a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -130,52 +291,95 @@ strong {
   color: black;
 }
 
-.Nav_body ul li a:link {
+@media screen and (max-width: 1200px) {
+  .Nav__body ul li a {
+    padding: 10px;
+    /* 余白 */
+    height: 50px;
+    /* 高さ */
+  }
+}
+.Nav__body ul li a:link {
   color: #131d34;
   text-decoration: none;
 }
 
-.Nav_body ul li a:hover {
+.Nav__body ul li a:hover {
   background-color: #d4f1f8;
 }
 
-.Nav_body ul li.Nav_special a {
+@media screen and (max-width: 1200px) {
+  .Nav__body ul li a:hover {
+    background-color: #f3fafb;
+    /* hoverの色 */
+  }
+}
+.Nav__body ul li.Nav_special a {
   background-color: #2498b3;
   color: #fff;
 }
 
+/* ナビゲーション　第2階層
+--------------------------------- */
 ul.sub-menu {
   display: none;
   position: absolute;
   top: 70px;
   left: 0;
-  z-index: 100;
+  z-index: 1000;
+}
+
+@media screen and (max-width: 1200px) {
+  ul.sub-menu {
+    position: static;
+  }
+
+  .Nav__body ul li.Nav_special {
+    display: none;
+    /* 1200px以下は非表示 */
+  }
+}
+ul.sub-menu.close {
+  display: none;
 }
 
 ul.sub-menu li {
   font-weight: 400;
   background-color: #e9f8fb;
-  height: 57px;
-  margin: 0px;
 }
 
+@media screen and (max-width: 1200px) {
+  ul.sub-menu li {
+    background-color: #fff;
+  }
+}
 ul.sub-menu li a {
   position: relative;
   padding: 15px 60px 15px 15px;
-  display: block;
-  height: 57px;
-  margin: 0px;
+  height: auto;
 }
 
+@media screen and (max-width: 1200px) {
+  ul.sub-menu li a {
+    padding: 10px 10px 10px 25px;
+  }
+}
 ul.sub-menu li a:hover {
   color: #2498b3;
   background-color: #fff;
+  text-decoration: none;
 }
 
-/* ToHead
+@media screen and (max-width: 1200px) {
+  ul.sub-menu li a:hover {
+    color: #121212;
+    background-color: #f3fafb;
+  }
+}
+/* TopHead
 --------------------------------- */
 /* 背景画像 - 背面 */
-.ToHead {
+.TopHead {
   position: relative;
   height: 650px;
   overflow: hidden;
@@ -185,8 +389,28 @@ ul.sub-menu li a:hover {
   margin-top: 70px;
 }
 
+@media screen and (max-width: 1280px) {
+  .TopHead {
+    margin-top: 70px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .TopHead {
+    margin-top: 50px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .TopHead {
+    height: 300px;
+    /* モバイル版に高さ調整 */
+    padding-bottom: 360px;
+    /* モバイル版に下部の余白調整 */
+    background-position: center -25px;
+    /* モバイル版に背景(hero3)位置調整 */
+  }
+}
 /* 背景画像（前面/中央）とボックス */
-.ToHead_layer {
+.TopHead__layer {
   position: absolute;
   top: 0;
   width: 100%;
@@ -194,7 +418,7 @@ ul.sub-menu li a:hover {
 }
 
 /* 背景画像 - 前面 */
-.ToHead_layer1 {
+.TopHead__layer1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -209,8 +433,22 @@ ul.sub-menu li a:hover {
   z-index: 200;
 }
 
+@media screen and (max-width: 767px) {
+  .TopHead__layer1 {
+    align-items: flex-end;
+    /* TopHead__body部を背景画像の下に配置 */
+    -webkit-box-align: end;
+    /* ベンダープレフィックス(chrome,Safari) */
+    -ms-flex-align: end;
+    /* ベンダープレフィックス(IE) */
+    background-position: center -30px;
+    /* モバイル版に背景(hero1)位置調整 */
+    background-size: cover;
+    /* 背景画像の縦横比を維持したまま、要素全体を覆う設定 */
+  }
+}
 /* 中央のボックス */
-.ToHead_body {
+.TopHead__body {
   max-width: 530px;
   border-radius: 10px;
   padding: 43px 40px 19px;
@@ -218,30 +456,64 @@ ul.sub-menu li a:hover {
   text-align: center;
 }
 
-.ToHead_body p {
+@media screen and (max-width: 767px) {
+  .TopHead__body {
+    width: 100%;
+    /* 下部に配置しているので幅を画面全体 */
+    max-width: 100%;
+    /* 下部に配置しているので高さを画面全体 */
+    padding: 9px 0 13px;
+    /* 余白の調整 */
+    border-radius: 0;
+    /* ボックスの形は四角 */
+  }
+}
+.TopHead__body p {
   margin: 1.3em 0 0.5em;
   font-weight: 700;
 }
 
-.ToHead_title img {
+@media screen and (max-width: 767px) {
+  .TopHead__body p {
+    margin: 0.5em 0;
+    /* ロゴとボタンの余白調整 */
+  }
+}
+.TopHead__title img {
   width: 280px;
   height: auto;
 }
 
-.ToHead_title p {
+@media screen and (max-width: 767px) {
+  .TopHead__title img {
+    display: none;
+    /* モバイル版はロゴを表示しない */
+  }
+}
+.TopHead__title p {
   font-size: 16px;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 900;
   margin-bottom: 20.8px;
 }
 
-.ToHead_body p.Btn.Btn--big a {
+.TopHead__body p.Btn.Btn--big a {
   padding: 24px 37px;
   font-size: 18px;
   background-color: #2498b3;
   border-color: #2498b3;
 }
 
+@media screen and (max-width: 767px) {
+  .TopHead__body p.Btn.Btn--big a {
+    padding: 16px;
+    /* ボタン部分の余白調整 */
+    font-size: 16px;
+    /* ボタン部分のフォント調整 */
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+}
 p.Btn {
   margin: 0 10px 1em 5px;
   line-height: 1;
@@ -257,13 +529,21 @@ p.Btn {
 }
 
 /* 背景画像 - 中央 */
-.ToHead_layer2 {
+.TopHead__layer2 {
   background: transparent url(../image/bg-hero2.png) no-repeat center center;
   z-index: 100;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
 
+@media screen and (max-width: 767px) {
+  .TopHead__layer2 {
+    background-position: center -25px;
+    /* モバイル版に背景(hero2)位置調整 */
+    background-size: cover;
+    /* 背景画像の縦横比を維持したまま、要素全体を覆う設定 */
+  }
+}
 /* Sec
 --------------------------------- */
 .Sec.Sec--nallow {
@@ -278,6 +558,12 @@ p.Btn {
   z-index: 500;
 }
 
+@media screen and (max-width: 1078px) {
+  /* サイズが小さくなっていく = 表示範囲が狭くなるので、画像/テキストの幅を微調整 */
+  .Wrap.Wrap--wide {
+    margin: 0 10px;
+  }
+}
 /* 丸icon + 文章 */
 .Recommendation {
   position: relative;
@@ -292,11 +578,35 @@ p.Btn {
   z-index: 1000;
 }
 
+@media screen and (max-width: 767px) {
+  .Recommendation {
+    margin-top: 0;
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+  }
+}
 .Recommendation__entry {
   margin: 0 50px;
   width: 229px;
 }
 
+@media screen and (max-width: 1078px) {
+  .Recommendation__entry {
+    width: 29.33%;
+    margin: 0 2%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .Recommendation__entry {
+    margin-bottom: 2.5em;
+    width: auto;
+  }
+}
 .Recommendation__title {
   text-align: center;
 }
@@ -336,306 +646,6 @@ p.Btn {
   line-height: 1;
 }
 
-/* レスポンシブ対応 ~1280px
---------------------------------- */
-@media screen and (max-width: 1280px) {
-  .ToHead {
-    margin-top: 70px;
-  }
-
-  .Header .Header_title p a span {
-    display: none;
-  }
-}
-/* レスポンシブ対応 ~1200px
---------------------------------- */
-@media screen and (max-width: 1200px) {
-  .ToHead {
-    margin-top: 50px;
-  }
-
-  .Nav_btn {
-    display: block;
-  }
-
-  .Nav_btn a span {
-    display: block;
-    overflow: hidden;
-    width: 1px;
-    height: 1px;
-  }
-
-  /* ナビゲーションメニュー（閉じている時）
-  --------------------------------- */
-  /* close　全体設定　*/
-  .Nav_btn a,
-.Nav_btn a.close {
-    display: block;
-    position: relative;
-    width: 50px;
-    height: 50px;
-  }
-
-  /* closeの前　三の最上位の線の描画 */
-  .Nav_btn a:before,
-.Nav_btn a.close:before {
-    position: absolute;
-    top: 15px;
-    left: 14px;
-    content: "";
-    width: 23px;
-    height: 2px;
-    background-color: #2498b3;
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
-  }
-
-  /* close　三の真ん中の線の描画 */
-  .Nav_btn a span:after,
-.Nav_btn a.close span:after {
-    position: absolute;
-    top: 24px;
-    left: 14px;
-    content: "";
-    width: 23px;
-    height: 2px;
-    background-color: #2498b3;
-  }
-
-  /* closeの後　三の最下位の線の描画 */
-  .Nav_btn a:after,
-.Nav_btn a.close:after {
-    position: absolute;
-    bottom: 15px;
-    left: 14px;
-    content: "";
-    width: 23px;
-    height: 2px;
-    background-color: #2498b3;
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
-  }
-
-  /* openの前　/の線の描画 */
-  .Nav_btn a.open:before {
-    top: 24px;
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    background-color: #fff;
-  }
-
-  /* openの前　✕の全体設定 */
-  .Nav_btn a.open {
-    background-color: #2498b3;
-  }
-
-  /* openの後　\の線の描画 */
-  .Nav_btn a.open:after {
-    bottom: 24px;
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
-    background-color: #fff;
-  }
-
-  /* 第2階層の+のーを描画 */
-  .menu-item-has-children > a:before {
-    display: block;
-    content: "";
-    position: absolute;
-    right: 13px;
-    width: 24px;
-    height: 2px;
-    margin-top: -1px;
-    background-color: #121212;
-    z-index: 9;
-  }
-
-  /* 第2階層の+の|を描画 */
-  .menu-item-has-children.close > a:after {
-    display: block;
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 24px;
-    width: 2px;
-    height: 24px;
-    margin-top: -12px;
-    background-color: #121212;
-  }
-
-  /* ヘッダーの位置調整
-  --------------------------------- */
-  .Header .Header_title {
-    margin: 10px;
-  }
-
-  .Header .Header_title p a {
-    height: 30px;
-  }
-
-  .Header .Header_title p img {
-    height: 30px;
-  }
-
-  /* ナビゲーション　第1階層
-  --------------------------------- */
-  .Nav_body {
-    display: none;
-    /* 最初は非表示(表示の設定はjs制御) */
-    position: absolute;
-    /* 相対配置 */
-    top: 50px;
-    /* 相対配置：上 */
-    left: 0;
-    /* 相対配置：左 */
-    right: 0;
-    /* 相対配置：下 */
-    z-index: 999;
-    /* 最前面表示 */
-    background-color: #fff;
-    /* 背景色 */
-  }
-
-  .Nav_body ul {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-            flex-direction: column;
-    /* 縦並び */
-    -ms-flex-direction: column;
-    /* ベンダープレフィックス(IE) */
-  }
-
-  .Nav_body ul li a {
-    padding: 10px;
-    /* 余白 */
-    height: 50px;
-    /* 高さ */
-  }
-
-  .Nav_body ul li a:hover {
-    background-color: #f3fafb;
-    /* hoverの色 */
-  }
-
-  /* ナビゲーション　第2階層
-  --------------------------------- */
-  ul.sub-menu {
-    position: static;
-    height: auto;
-    /* 第2階層はリスト数が違うのでAuto設定 */
-  }
-
-  ul.sub-menu li {
-    background-color: #fff;
-    /* 背景色 */
-  }
-
-  ul.sub-menu li a {
-    display: block;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    padding: 15px 10px 0px 25px;
-    /* 第2階層のインデント */
-  }
-
-  .Nav_body ul li.Nav_special {
-    display: none;
-    /* 1200px以下は非表示 */
-  }
-}
-/* レスポンシブ対応 ~1078px
---------------------------------- */
-@media screen and (max-width: 1078px) {
-  /* サイズが小さくなっていく = 表示範囲が狭くなるので、画像/テキストの幅を微調整 */
-  .Wrap.Wrap--wide {
-    margin: 0 10px;
-  }
-
-  .Recommendation__entry {
-    width: 29.33%;
-    margin: 0 2%;
-  }
-}
-/* レスポンシブ対応 ~767px
---------------------------------- */
-@media screen and (max-width: 767px) {
-  .ToHead {
-    height: 300px;
-    /* モバイル版に高さ調整 */
-    padding-bottom: 360px;
-    /* モバイル版に下部の余白調整 */
-    background-position: center -25px;
-    /* モバイル版に背景(hero3)位置調整 */
-  }
-
-  .ToHead_layer1 {
-    align-items: flex-end;
-    /* ToHead_body部を背景画像の下に配置 */
-    -webkit-box-align: end;
-    /* ベンダープレフィックス(chrome,Safari) */
-    -ms-flex-align: end;
-    /* ベンダープレフィックス(IE) */
-    background-position: center -30px;
-    /* モバイル版に背景(hero1)位置調整 */
-    background-size: cover;
-    /* 背景画像の縦横比を維持したまま、要素全体を覆う設定 */
-  }
-
-  .ToHead_body {
-    width: 100%;
-    /* 下部に配置しているので幅を画面全体 */
-    max-width: 100%;
-    /* 下部に配置しているので高さを画面全体 */
-    padding: 9px 0 13px;
-    /* 余白の調整 */
-    border-radius: 0;
-    /* ボックスの形は四角 */
-  }
-
-  .ToHead_body p {
-    margin: 0.5em 0;
-    /* ロゴとボタンの余白調整 */
-  }
-
-  .ToHead_title img {
-    display: none;
-    /* モバイル版はロゴを表示しない */
-  }
-
-  .ToHead_body p.Btn.Btn--big a {
-    padding: 16px;
-    /* ボタン部分の余白調整 */
-    font-size: 16px;
-    /* ボタン部分のフォント調整 */
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-  }
-
-  .ToHead_layer2 {
-    background-position: center -25px;
-    /* モバイル版に背景(hero2)位置調整 */
-    background-size: cover;
-    /* 背景画像の縦横比を維持したまま、要素全体を覆う設定 */
-  }
-
-  .Recommendation {
-    margin-top: 0;
-    flex-direction: column;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-  }
-
-  .Recommendation__entry {
-    margin-bottom: 2.5em;
-    width: auto;
-  }
-}
 /* 以下はおまけ
 --------------------------------- */
 /* フッター */
